@@ -497,6 +497,7 @@
   <div class="nav-section">
     <div class="nav-section-title">Features</div>
     <a class="nav-link" href="#http-server">HTTP Server</a>
+    <a class="nav-link" href="#startup-banner">Startup Banner</a>
     <a class="nav-link" href="#middleware">Middleware</a>
     <a class="nav-link" href="#authentication">Authentication (JWT)</a>
     <a class="nav-link" href="#exception-handling">Exception Handling</a>
@@ -505,6 +506,7 @@
     <div class="nav-section-title">Tooling</div>
     <a class="nav-link" href="#dev-tools">Developer Tools</a>
     <a class="nav-link" href="#cli">CLI Tool</a>
+    <a class="nav-link" href="#testing">Testing APIs</a>
   </div>
   <div class="nav-section">
     <div class="nav-section-title">Reference</div>
@@ -591,7 +593,19 @@
       <div class="terminal-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
       <div class="terminal-body">
         <div><span class="prompt">$</span> mvn exec:java</div>
-        <div class="ok">🔥 FlowForge started on port 9091</div>
+        <div class="out">&nbsp;</div>
+        <div class="ok">🚀 FlowForge Framework</div>
+        <div class="out">&nbsp;</div>
+        <div class="out">🔍 Scanning package: example</div>
+        <div class="out">📦 Bean Registered: example.UserController</div>
+        <div class="out">🚀 Controller Ready: example.UserController</div>
+        <div class="out">&nbsp;</div>
+        <div class="out">=================================</div>
+        <div class="ok">🚀 FlowForge Started Successfully</div>
+        <div class="out">=================================</div>
+        <div class="out">🌐 Server Port      : 9091</div>
+        <div class="out">🔗 Docs UI          : http://localhost:9091/dev/docs-ui</div>
+        <div class="out">=================================</div>
       </div>
     </div>
 
@@ -619,10 +633,17 @@
 
     <h3>Framework</h3>
     <div class="code-wrap">
-      <pre><code>flowforge_framework/
- ├── src/main/java/flowforge/
- ├── src/main/resources/
- └── pom.xml</code></pre>
+      <pre><code>flowforge/
+ ├── core/
+ │    ├── annotations/
+ │    ├── context/
+ │    ├── dispatcher/
+ │    ├── scanner/
+ │    ├── server/
+ │    ├── config/
+ │    └── banner/
+ ├── cli/
+ └── Flow.java</code></pre>
     </div>
 
     <h3>Application</h3>
@@ -667,25 +688,33 @@
     <div class="section-label">Core</div>
     <h2>Routing & Controllers</h2>
 
-    <h3>Basic Controller</h3>
+    <h3>Controller Example</h3>
     <div class="code-wrap">
       <button class="copy-btn" onclick="copyCode(this)">copy</button>
       <pre><code><span class="an">@Controller</span>
 <span class="kw">public class</span> <span class="ty">UserController</span> {
 
-    <span class="an">@Get</span>(<span class="str">"/user"</span>)
-    <span class="kw">public</span> <span class="ty">String</span> <span class="fn">getUser</span>() {
-        <span class="kw">return</span> <span class="str">"User"</span>;
+    <span class="an">@Get</span>(<span class="str">"/hello"</span>)
+    <span class="kw">public</span> <span class="ty">String</span> <span class="fn">hello</span>() {
+        <span class="kw">return</span> <span class="str">"Hello FlowForge 🚀"</span>;
+    }
+
+    <span class="an">@Post</span>(<span class="str">"/create"</span>)
+    <span class="kw">public</span> <span class="ty">String</span> <span class="fn">create</span>(<span class="an">@RequestBody</span> <span class="ty">String</span> body) {
+        <span class="kw">return</span> <span class="str">"Created: "</span> + body;
     }
 }</code></pre>
     </div>
 
-    <h3>Supported HTTP Methods</h3>
+    <h3>Supported Annotations</h3>
     <table>
-      <thead><tr><th>Annotation</th><th>HTTP Verb</th></tr></thead>
+      <thead><tr><th>Annotation</th><th>Description</th></tr></thead>
       <tbody>
-        <tr><td>@Get</td><td>GET</td></tr>
-        <tr><td>@Post</td><td>POST</td></tr>
+        <tr><td>@Controller</td><td>Marks a controller class</td></tr>
+        <tr><td>@Get</td><td>Handles GET requests</td></tr>
+        <tr><td>@Post</td><td>Handles POST requests</td></tr>
+        <tr><td>@RequestBody</td><td>Reads the request body</td></tr>
+        <tr><td>@ExceptionHandler</td><td>Handles exceptions globally</td></tr>
       </tbody>
     </table>
 
@@ -723,7 +752,19 @@
   <section class="doc-section" id="dependency-injection">
     <div class="section-label">Core</div>
     <h2>Dependency Injection</h2>
-    <p>FlowForge uses constructor-based DI. Annotate your classes and the framework handles the rest.</p>
+    <p>FlowForge includes basic dependency injection. Constructor injection and field injection are on the roadmap.</p>
+
+    <h3>Currently Supported</h3>
+    <ul>
+      <li>Basic bean registration via annotations</li>
+      <li>Type-based bean lookup</li>
+      <li>Manual constructor wiring</li>
+    </ul>
+
+    <div class="callout warn">
+      <div class="callout-title">⚠️ Not Yet Implemented</div>
+      <p><code>@Autowired</code>, constructor injection, and bean scopes are planned for a future release.</p>
+    </div>
 
     <h3>Bean Annotations</h3>
     <table>
@@ -788,19 +829,48 @@
     <div class="code-wrap">
       <button class="copy-btn" onclick="copyCode(this)">copy</button>
       <pre><code>server.port=9091
-app.name=FlowForgeServer
-app.env=dev</code></pre>
+app.name=MyFlowForgeApp
+flow.env=dev
+flow.banner=true</code></pre>
     </div>
 
-    <div class="callout tip">
-      <div class="callout-title">✅ Environment Loading</div>
-      <p>FlowForge always loads <code>app.properties</code> first, then merges <code>app-{env}.properties</code> on top, so env-specific values override base defaults.</p>
-    </div>
+    <h3>Supported Keys</h3>
+    <table>
+      <thead><tr><th>Key</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>server.port</td><td>Port the HTTP server binds to</td></tr>
+        <tr><td>app.name</td><td>Application display name</td></tr>
+        <tr><td>flow.env</td><td>Active environment (dev / prod)</td></tr>
+        <tr><td>flow.banner</td><td>Enable or disable the startup banner</td></tr>
+      </tbody>
+    </table>
   </section>
 
   <hr class="divider">
 
-  <!-- HTTP SERVER -->
+  <!-- STARTUP BANNER -->
+  <section class="doc-section" id="startup-banner">
+    <div class="section-label">Features</div>
+    <h2>Startup Banner</h2>
+    <p>FlowForge displays a startup banner in the console every time your application boots.</p>
+
+    <div class="terminal">
+      <div class="terminal-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
+      <div class="terminal-body">
+        <div class="ok">🚀 FlowForge Framework</div>
+        <div class="out">:: FlowForge :: (v1.0)</div>
+        <div class="out">&nbsp;</div>
+        <div class="out">Java Version    : 17.0.x</div>
+        <div class="out">Working Dir     : /your/project/path</div>
+        <div class="out">Startup Time    : 312ms</div>
+        <div class="out">Docs URL        : http://localhost:9091/dev/docs-ui</div>
+      </div>
+    </div>
+
+    <p>Disable the banner by setting <code>flow.banner=false</code> in <code>app.properties</code>.</p>
+  </section>
+
+  <hr class="divider">
   <section class="doc-section" id="http-server">
     <div class="section-label">Features</div>
     <h2>HTTP Server</h2>
@@ -908,14 +978,30 @@ app.env=dev</code></pre>
       <thead><tr><th>Endpoint</th><th>Tool</th><th>Description</th></tr></thead>
       <tbody>
         <tr><td>GET /dev/routes</td><td>Dev Dashboard</td><td>Lists all registered routes</td></tr>
-        <tr><td>GET /dev/docs-ui</td><td>Docs UI</td><td>Interactive API explorer with JWT, curl gen, JSON formatter</td></tr>
+        <tr><td>GET /dev/docs-ui</td><td>Docs UI</td><td>Interactive API explorer</td></tr>
         <tr><td>GET /dev/openapi</td><td>OpenAPI</td><td>Swagger-compatible spec generation</td></tr>
       </tbody>
     </table>
 
+    <h3>Docs UI Features</h3>
+    <ul>
+      <li>List all APIs grouped by tags</li>
+      <li>Try API directly from the browser</li>
+      <li>Interactive request builder</li>
+      <li>JSON response viewer</li>
+      <li>cURL export</li>
+      <li>Copy request button</li>
+      <li>JWT token input</li>
+    </ul>
+
+    <div class="callout tip">
+      <div class="callout-title">✅ Access Docs UI</div>
+      <p>Open <code>http://localhost:9091/dev/docs-ui</code> while your app is running.</p>
+    </div>
+
     <div class="callout warn">
       <div class="callout-title">⚠️ Production Warning</div>
-      <p>Disable dev tools endpoints in production by setting <code>app.env=prod</code>.</p>
+      <p>Disable dev tools in production by setting <code>flow.env=prod</code>.</p>
     </div>
   </section>
 
@@ -925,26 +1011,93 @@ app.env=dev</code></pre>
   <section class="doc-section" id="cli">
     <div class="section-label">Tooling</div>
     <h2>CLI Tool</h2>
-    <p>FlowForge ships a CLI for scaffolding new projects instantly.</p>
+    <p>FlowForge ships a CLI for scaffolding and running projects.</p>
 
-    <h3>Create a New App</h3>
+    <h3>Commands</h3>
+    <table>
+      <thead><tr><th>Command</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>create app &lt;name&gt;</td><td>Generate a new project</td></tr>
+        <tr><td>run</td><td>Run the application</td></tr>
+        <tr><td>build</td><td>Build the project</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Create & Run</h3>
     <div class="terminal">
       <div class="terminal-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
       <div class="terminal-body">
         <div><span class="prompt">$</span> flowforge create app my-app</div>
-        <div class="out">Scaffolding project…</div>
         <div class="ok">✔ Created my-app/src/</div>
         <div class="ok">✔ Created my-app/pom.xml</div>
         <div class="ok">✔ Created my-app/app.properties</div>
+        <div><span class="prompt">$</span> cd my-app</div>
+        <div><span class="prompt">$</span> flowforge run</div>
       </div>
     </div>
 
-    <h3>Generated Structure</h3>
+    <h3>Global CLI Setup (Windows)</h3>
+    <p>Follow these steps to use <code>flowforge</code> from any terminal on Windows.</p>
+
+    <h4>Step 1 — Build the JAR</h4>
+    <div class="terminal">
+      <div class="terminal-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
+      <div class="terminal-body">
+        <div><span class="prompt">$</span> mvn clean package</div>
+      </div>
+    </div>
+
+    <h4>Step 2 — Create install folder</h4>
+    <div class="code-wrap"><pre><code>C:\flowforge</code></pre></div>
+
+    <h4>Step 3 — Copy the JAR</h4>
+    <div class="code-wrap"><pre><code>flowforge-core-1.0.jar  →  C:\flowforge\</code></pre></div>
+
+    <h4>Step 4 — Create flowforge.bat</h4>
     <div class="code-wrap">
-      <pre><code>my-app/
- ├── src/
- ├── pom.xml
- └── app.properties</code></pre>
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+      <pre><code>@echo off
+java -cp "C:\flowforge\flowforge-core-1.0.jar" flowforge.cli.FlowForgeCLI %*</code></pre>
+    </div>
+
+    <h4>Step 5 — Add to PATH</h4>
+    <p>Add <code>C:\flowforge</code> to your system <strong>PATH</strong> environment variable, then restart your terminal.</p>
+
+    <h4>Step 6 — Verify</h4>
+    <div class="terminal">
+      <div class="terminal-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
+      <div class="terminal-body">
+        <div><span class="prompt">$</span> flowforge</div>
+        <div class="ok">🔥 FlowForge CLI v1.0</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- TESTING -->
+  <section class="doc-section" id="testing">
+    <div class="section-label">Tooling</div>
+    <h2>Testing APIs</h2>
+    <p>You can test your FlowForge endpoints directly from a browser or via cURL.</p>
+
+    <h3>Browser</h3>
+    <div class="terminal">
+      <div class="terminal-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
+      <div class="terminal-body">
+        <div class="out">http://localhost:9091/hello</div>
+      </div>
+    </div>
+
+    <h3>cURL</h3>
+    <div class="code-wrap">
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+      <pre><code>curl -X POST http://localhost:9091/create -d "test"</code></pre>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title">✅ Tip</div>
+      <p>Use the built-in Docs UI at <code>/dev/docs-ui</code> for a full interactive testing experience — no external tools needed.</p>
     </div>
   </section>
 
@@ -1009,11 +1162,12 @@ JVM</code></pre>
     <table>
       <thead><tr><th>Feature</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td>Advanced @Autowired (field + constructor)</td><td><span class="pill plan">Planned</span></td></tr>
-        <tr><td>Validation framework</td><td><span class="pill plan">Planned</span></td></tr>
-        <tr><td>ORM / database support</td><td><span class="pill plan">Planned</span></td></tr>
-        <tr><td>Logging system</td><td><span class="pill plan">Planned</span></td></tr>
-        <tr><td>Middleware chaining</td><td><span class="pill plan">Planned</span></td></tr>
+        <tr><td>@Autowired (field injection)</td><td><span class="pill plan">Planned</span></td></tr>
+        <tr><td>Constructor-based DI</td><td><span class="pill plan">Planned</span></td></tr>
+        <tr><td>Middleware pipeline</td><td><span class="pill plan">Planned</span></td></tr>
+        <tr><td>Validation system</td><td><span class="pill plan">Planned</span></td></tr>
+        <tr><td>Logging framework</td><td><span class="pill plan">Planned</span></td></tr>
+        <tr><td>Hot reload (dev mode)</td><td><span class="pill plan">Planned</span></td></tr>
         <tr><td>CLI global install</td><td><span class="pill plan">Planned</span></td></tr>
         <tr><td>Fat JAR packaging</td><td><span class="pill plan">Planned</span></td></tr>
         <tr><td>Production profiles</td><td><span class="pill plan">Planned</span></td></tr>
