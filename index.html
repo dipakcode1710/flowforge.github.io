@@ -322,19 +322,111 @@
     /* divider */
     .divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
 
-    /* mobile hamburger */
+    /* ── HAMBURGER ── */
     .hamburger {
-      display: none; background: none; border: none;
-      color: var(--text); cursor: pointer; padding: 6px;
-      font-size: 20px;
+      display: none; background: none; border: 1px solid var(--border);
+      color: var(--text); cursor: pointer; padding: 6px 10px;
+      font-size: 18px; border-radius: 6px; line-height: 1;
+      flex-shrink: 0;
     }
 
+    /* ── SIDEBAR BACKDROP ── */
+    .sidebar-backdrop {
+      display: none;
+      position: fixed; inset: 0; z-index: 89;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(2px);
+    }
+    .sidebar-backdrop.visible { display: block; }
+
+    /* ── TABLES: scrollable on small screens ── */
+    .table-wrap {
+      width: 100%; overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      margin: 16px 0 24px;
+    }
+    .table-wrap table { margin: 0; border: none; min-width: 480px; }
+    .table-wrap td, .table-wrap th { white-space: nowrap; }
+
+    /* ── DESKTOP (≥ 861px) ── */
+    @media (min-width: 861px) {
+      .topbar-links { display: flex; }
+    }
+
+    /* ── TABLET (≤ 860px) ── */
     @media (max-width: 860px) {
       .hamburger { display: block; }
-      .sidebar { transform: translateX(-100%); transition: transform 0.25s; z-index: 90; }
-      .sidebar.open { transform: translateX(0); }
-      .main { margin-left: 0; padding: 28px 20px 60px; }
       .topbar-links { display: none; }
+      .topbar-version { display: none; }
+
+      .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.28s cubic-bezier(.4,0,.2,1);
+        z-index: 90;
+        width: min(var(--nav-w), 85vw);
+        box-shadow: 4px 0 24px rgba(0,0,0,0.5);
+      }
+      .sidebar.open { transform: translateX(0); }
+
+      .main {
+        margin-left: 0;
+        padding: 36px 20px 72px;
+        max-width: 100%;
+      }
+
+      h2 { font-size: 24px; letter-spacing: -0.5px; }
+      h3 { font-size: 16px; }
+
+      .hero { padding: 40px 0 36px; }
+      .hero h1 { font-size: clamp(28px, 8vw, 42px); letter-spacing: -1px; }
+      .hero-sub { font-size: 15px; }
+      .hero-badge { font-size: 10px; padding: 4px 10px; }
+
+      .hero-buttons { flex-direction: column; gap: 10px; }
+      .btn { width: 100%; justify-content: center; padding: 13px 20px; }
+
+      .features { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 28px; }
+
+      pre { padding: 14px 14px 14px 14px; font-size: 12px; }
+      pre code { font-size: 12px; }
+      .copy-btn { font-size: 10px; padding: 3px 8px; top: 8px; right: 8px; }
+
+      .terminal-body { font-size: 12px; padding: 12px 14px; }
+
+      /* wrap tables */
+      table { min-width: 440px; }
+      .doc-section table,
+      .hero table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+      .divider { margin: 32px 0; }
+      .back-to-top { bottom: 20px; right: 16px; width: 36px; height: 36px; font-size: 16px; }
+    }
+
+    /* ── MOBILE (≤ 480px) ── */
+    @media (max-width: 480px) {
+      .topbar { padding: 0 14px; gap: 10px; }
+      .topbar-logo { font-size: 16px; }
+
+      .main { padding: 24px 14px 64px; }
+
+      .hero h1 { font-size: clamp(26px, 9vw, 36px); }
+      .features { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .feature-card { padding: 14px 12px; }
+      .feature-icon { font-size: 18px; }
+
+      h2 { font-size: 22px; }
+      h3 { font-size: 15px; }
+
+      pre { padding: 12px; }
+      pre code { font-size: 11.5px; }
+
+      .callout { padding: 12px 14px; }
+
+      th, td { padding: 8px 10px; }
+
+      .pill { font-size: 10px; padding: 2px 8px; }
     }
 
     /* scroll spy */
@@ -383,6 +475,9 @@
 
 <!-- PROGRESS BAR -->
 <div class="progress"><div class="progress-bar" id="prog"></div></div>
+
+<!-- SIDEBAR BACKDROP -->
+<div class="sidebar-backdrop" id="backdrop" onclick="closeSidebar()"></div>
 
 <!-- SIDEBAR -->
 <nav class="sidebar" id="sidebar">
@@ -960,17 +1055,30 @@ JVM</code></pre>
     document.getElementById('btt').classList.toggle('visible', s.scrollTop > 400);
   });
 
-  // Sidebar toggle (mobile)
+  // Sidebar open/close
+  function openSidebar() {
+    document.getElementById('sidebar').classList.add('open');
+    document.getElementById('backdrop').classList.add('visible');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('backdrop').classList.remove('visible');
+    document.body.style.overflow = '';
+  }
   function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('open');
+    document.getElementById('sidebar').classList.contains('open') ? closeSidebar() : openSidebar();
   }
 
-  // Close sidebar on nav click (mobile)
+  // Close sidebar on nav link click (mobile)
   document.querySelectorAll('.nav-link').forEach(a => {
     a.addEventListener('click', () => {
-      document.getElementById('sidebar').classList.remove('open');
+      if (window.innerWidth <= 860) closeSidebar();
     });
   });
+
+  // Close sidebar on Escape
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSidebar(); });
 
   // Active nav highlight on scroll
   const sections = document.querySelectorAll('.doc-section, .hero');
@@ -986,6 +1094,16 @@ JVM</code></pre>
     });
   }, { rootMargin: '-20% 0px -70% 0px' });
   sections.forEach(s => observer.observe(s));
+
+  // Wrap all tables for horizontal scroll on mobile
+  document.querySelectorAll('table').forEach(t => {
+    if (!t.parentElement.classList.contains('table-wrap')) {
+      const wrap = document.createElement('div');
+      wrap.className = 'table-wrap';
+      t.parentNode.insertBefore(wrap, t);
+      wrap.appendChild(t);
+    }
+  });
 
   // Copy button
   function copyCode(btn) {
