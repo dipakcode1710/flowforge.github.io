@@ -24,9 +24,7 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'Sora', sans-serif;
       background: var(--bg);
@@ -61,8 +59,7 @@
     .topbar-links { margin-left: auto; display: flex; gap: 24px; }
     .topbar-links a {
       color: var(--muted); text-decoration: none; font-size: 13px;
-      font-weight: 600; letter-spacing: 0.3px;
-      transition: color 0.2s;
+      font-weight: 600; letter-spacing: 0.3px; transition: color 0.2s;
     }
     .topbar-links a:hover { color: var(--text); }
     .topbar-github {
@@ -114,7 +111,7 @@
       padding: 1px 6px; border-radius: 10px; margin-left: 6px; vertical-align: middle;
     }
 
-    /* ── MAIN CONTENT ── */
+    /* ── MAIN ── */
     .main {
       margin-left: var(--nav-w);
       margin-top: 60px;
@@ -138,11 +135,9 @@
     }
     .hero-badge::before { content: '●'; font-size: 8px; animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-
     .hero h1 {
       font-size: clamp(36px, 5vw, 56px);
-      font-weight: 800; letter-spacing: -2px; line-height: 1.1;
-      margin-bottom: 18px;
+      font-weight: 800; letter-spacing: -2px; line-height: 1.1; margin-bottom: 18px;
     }
     .hero h1 span { color: var(--accent); }
     .hero-sub {
@@ -156,25 +151,18 @@
       font-size: 14px; font-weight: 600; text-decoration: none;
       transition: all 0.2s; cursor: pointer; border: none;
     }
-    .btn-primary {
-      background: var(--accent); color: #fff;
-    }
+    .btn-primary { background: var(--accent); color: #fff; }
     .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
-    .btn-outline {
-      background: transparent; color: var(--text);
-      border: 1px solid var(--border);
-    }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* feature grid */
     .features {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 16px; margin-top: 40px;
     }
     .feature-card {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 20px;
-      transition: border-color 0.2s;
+      border-radius: var(--radius); padding: 20px; transition: border-color 0.2s;
     }
     .feature-card:hover { border-color: var(--accent); }
     .feature-icon { font-size: 22px; margin-bottom: 8px; }
@@ -182,25 +170,14 @@
     .feature-desc { font-size: 12px; color: var(--muted); }
 
     /* ── SECTIONS ── */
-    .doc-section {
-      margin-bottom: 64px;
-      animation: fadeUp 0.4s ease both;
-    }
+    .doc-section { margin-bottom: 64px; animation: fadeUp 0.4s ease both; }
     @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
-
     .section-label {
       font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
-      text-transform: uppercase; color: var(--accent);
-      margin-bottom: 8px;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
     }
-    h2 {
-      font-size: 28px; font-weight: 800; letter-spacing: -0.8px;
-      margin-bottom: 14px; line-height: 1.2;
-    }
-    h3 {
-      font-size: 18px; font-weight: 700; margin: 32px 0 12px;
-      padding-bottom: 8px; border-bottom: 1px solid var(--border);
-    }
+    h2 { font-size: 28px; font-weight: 800; letter-spacing: -0.8px; margin-bottom: 14px; line-height: 1.2; }
+    h3 { font-size: 18px; font-weight: 700; margin: 32px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
     h4 { font-size: 14px; font-weight: 700; margin: 20px 0 8px; color: var(--accent2); }
     p { color: var(--muted); margin-bottom: 14px; }
     p strong { color: var(--text); }
@@ -210,56 +187,42 @@
     a { color: var(--blue); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* code */
     pre {
-      background: var(--code-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px 22px;
-      overflow-x: auto;
-      margin: 16px 0 24px;
-      position: relative;
+      background: var(--code-bg); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 22px;
+      overflow-x: auto; margin: 16px 0 24px; position: relative;
     }
     pre code {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 13px; line-height: 1.7;
-      color: var(--text);
+      font-size: 13px; line-height: 1.7; color: var(--text);
     }
     code {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12.5px;
-      background: rgba(255,255,255,0.07);
-      padding: 2px 6px; border-radius: 4px;
-      color: var(--accent2);
+      font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
+      background: rgba(255,255,255,0.07); padding: 2px 6px;
+      border-radius: 4px; color: var(--accent2);
     }
     pre code { background: none; padding: 0; color: var(--text); font-size: 13px; }
 
-    /* syntax highlight classes */
-    .kw  { color: #ff7b72; }   /* keywords */
-    .an  { color: var(--purple); } /* annotations */
-    .str { color: #a5d6ff; }   /* strings */
-    .cm  { color: #8b949e; }   /* comments */
-    .ty  { color: #ffa657; }   /* types */
-    .fn  { color: #d2a8ff; }   /* function names */
-    .nb  { color: var(--green); } /* numbers / booleans */
+    .kw  { color: #ff7b72; }
+    .an  { color: var(--purple); }
+    .str { color: #a5d6ff; }
+    .cm  { color: #8b949e; }
+    .ty  { color: #ffa657; }
+    .fn  { color: #d2a8ff; }
+    .nb  { color: var(--green); }
 
-    /* copy button */
     .code-wrap { position: relative; }
     .copy-btn {
       position: absolute; top: 12px; right: 12px;
       background: var(--border); border: 1px solid var(--border);
       color: var(--muted); font-size: 11px; font-family: 'JetBrains Mono', monospace;
-      padding: 4px 10px; border-radius: 5px; cursor: pointer;
-      transition: all 0.2s;
+      padding: 4px 10px; border-radius: 5px; cursor: pointer; transition: all 0.2s;
     }
     .copy-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-    /* terminal */
     .terminal {
-      background: #0a0f16;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 0; overflow: hidden; margin: 16px 0 24px;
+      background: #0a0f16; border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 0; overflow: hidden; margin: 16px 0 24px;
     }
     .terminal-bar {
       background: #1c2333; padding: 10px 14px;
@@ -269,20 +232,16 @@
     .dot { width:10px; height:10px; border-radius:50%; }
     .dot.r{background:#ff5f57} .dot.y{background:#febc2e} .dot.g{background:#28c840}
     .terminal-body {
-      padding: 16px 20px;
-      font-family: 'JetBrains Mono', monospace;
+      padding: 16px 20px; font-family: 'JetBrains Mono', monospace;
       font-size: 13px; line-height: 1.8; color: #cdd9e5;
     }
     .terminal-body .prompt { color: var(--green); }
     .terminal-body .out { color: var(--muted); }
     .terminal-body .ok { color: var(--green); }
 
-    /* info/warn boxes */
     .callout {
-      border-left: 3px solid;
-      padding: 14px 18px;
-      border-radius: 0 var(--radius) var(--radius) 0;
-      margin: 16px 0 24px;
+      border-left: 3px solid; padding: 14px 18px;
+      border-radius: 0 var(--radius) var(--radius) 0; margin: 16px 0 24px;
     }
     .callout.info  { border-color: var(--blue);   background: rgba(88,166,255,0.07); }
     .callout.tip   { border-color: var(--green);  background: rgba(63,185,80,0.07); }
@@ -293,7 +252,6 @@
     .callout.warn  .callout-title { color: var(--accent); }
     .callout p { margin: 0; font-size: 13.5px; }
 
-    /* table */
     table { width:100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 13.5px; }
     th {
       text-align: left; padding: 10px 14px;
@@ -301,135 +259,70 @@
       font-size: 11px; font-weight: 700; letter-spacing: 0.8px;
       text-transform: uppercase; color: var(--muted);
     }
-    td {
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--border);
-      color: var(--muted);
-    }
+    td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--muted); }
     td:first-child { color: var(--text); font-family: 'JetBrains Mono', monospace; font-size: 12.5px; }
     tr:hover td { background: rgba(255,255,255,0.02); }
 
-    /* status pills */
     .pill {
       display: inline-flex; align-items: center; gap: 5px;
       font-size: 11px; font-family: 'JetBrains Mono', monospace;
       padding: 3px 10px; border-radius: 20px;
     }
-    .pill.done  { background: rgba(63,185,80,0.15); color: var(--green); border: 1px solid rgba(63,185,80,0.3); }
-    .pill.plan  { background: rgba(249,115,22,0.1); color: var(--accent); border: 1px solid rgba(249,115,22,0.25); }
+    .pill.done  { background: rgba(63,185,80,0.15);  color: var(--green);  border: 1px solid rgba(63,185,80,0.3); }
+    .pill.plan  { background: rgba(249,115,22,0.1);  color: var(--accent); border: 1px solid rgba(249,115,22,0.25); }
     .pill::before { content:'●'; font-size:7px; }
 
-    /* divider */
     .divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
 
-    /* ── HAMBURGER ── */
     .hamburger {
       display: none; background: none; border: 1px solid var(--border);
       color: var(--text); cursor: pointer; padding: 6px 10px;
-      font-size: 18px; border-radius: 6px; line-height: 1;
-      flex-shrink: 0;
+      font-size: 18px; border-radius: 6px; line-height: 1; flex-shrink: 0;
     }
-
-    /* ── SIDEBAR BACKDROP ── */
     .sidebar-backdrop {
-      display: none;
-      position: fixed; inset: 0; z-index: 89;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(2px);
+      display: none; position: fixed; inset: 0; z-index: 89;
+      background: rgba(0,0,0,0.6); backdrop-filter: blur(2px);
     }
     .sidebar-backdrop.visible { display: block; }
-
-    /* ── TABLES: scrollable on small screens ── */
     .table-wrap {
-      width: 100%; overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      margin: 16px 0 24px;
+      width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;
+      border-radius: var(--radius); border: 1px solid var(--border); margin: 16px 0 24px;
     }
     .table-wrap table { margin: 0; border: none; min-width: 480px; }
     .table-wrap td, .table-wrap th { white-space: nowrap; }
 
-    /* ── DESKTOP (≥ 861px) ── */
-    @media (min-width: 861px) {
-      .topbar-links { display: flex; }
-    }
-
-    /* ── TABLET (≤ 860px) ── */
     @media (max-width: 860px) {
       .hamburger { display: block; }
       .topbar-links { display: none; }
       .topbar-version { display: none; }
-
       .sidebar {
         transform: translateX(-100%);
         transition: transform 0.28s cubic-bezier(.4,0,.2,1);
-        z-index: 90;
-        width: min(var(--nav-w), 85vw);
+        z-index: 90; width: min(var(--nav-w), 85vw);
         box-shadow: 4px 0 24px rgba(0,0,0,0.5);
       }
       .sidebar.open { transform: translateX(0); }
-
-      .main {
-        margin-left: 0;
-        padding: 36px 20px 72px;
-        max-width: 100%;
-      }
-
-      h2 { font-size: 24px; letter-spacing: -0.5px; }
-      h3 { font-size: 16px; }
-
+      .main { margin-left: 0; padding: 36px 20px 72px; max-width: 100%; }
+      h2 { font-size: 24px; } h3 { font-size: 16px; }
       .hero { padding: 40px 0 36px; }
-      .hero h1 { font-size: clamp(28px, 8vw, 42px); letter-spacing: -1px; }
+      .hero h1 { font-size: clamp(28px, 8vw, 42px); }
       .hero-sub { font-size: 15px; }
-      .hero-badge { font-size: 10px; padding: 4px 10px; }
-
       .hero-buttons { flex-direction: column; gap: 10px; }
       .btn { width: 100%; justify-content: center; padding: 13px 20px; }
-
       .features { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 28px; }
-
-      pre { padding: 14px 14px 14px 14px; font-size: 12px; }
-      pre code { font-size: 12px; }
-      .copy-btn { font-size: 10px; padding: 3px 8px; top: 8px; right: 8px; }
-
+      pre { padding: 14px; } pre code { font-size: 12px; }
       .terminal-body { font-size: 12px; padding: 12px 14px; }
-
-      /* wrap tables */
-      table { min-width: 440px; }
-      .doc-section table,
-      .hero table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-
       .divider { margin: 32px 0; }
-      .back-to-top { bottom: 20px; right: 16px; width: 36px; height: 36px; font-size: 16px; }
     }
-
-    /* ── MOBILE (≤ 480px) ── */
     @media (max-width: 480px) {
       .topbar { padding: 0 14px; gap: 10px; }
-      .topbar-logo { font-size: 16px; }
-
       .main { padding: 24px 14px 64px; }
-
-      .hero h1 { font-size: clamp(26px, 9vw, 36px); }
       .features { grid-template-columns: 1fr 1fr; gap: 8px; }
       .feature-card { padding: 14px 12px; }
-      .feature-icon { font-size: 18px; }
-
-      h2 { font-size: 22px; }
-      h3 { font-size: 15px; }
-
-      pre { padding: 12px; }
-      pre code { font-size: 11.5px; }
-
-      .callout { padding: 12px 14px; }
-
-      th, td { padding: 8px 10px; }
-
-      .pill { font-size: 10px; padding: 2px 8px; }
+      h2 { font-size: 22px; } h3 { font-size: 15px; }
+      pre { padding: 12px; } pre code { font-size: 11.5px; }
     }
 
-    /* scroll spy */
     .back-to-top {
       position: fixed; bottom: 32px; right: 32px;
       background: var(--accent); color: #fff;
@@ -437,30 +330,19 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 18px; text-decoration: none;
       box-shadow: 0 4px 20px rgba(249,115,22,0.4);
-      opacity: 0; pointer-events: none;
-      transition: opacity 0.3s;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
     }
     .back-to-top.visible { opacity: 1; pointer-events: auto; }
-
-    /* progress bar */
-    .progress {
-      position: fixed; top: 60px; left: 0; right: 0; height: 2px;
-      background: var(--border); z-index: 99;
-    }
-    .progress-bar {
-      height: 100%; background: var(--accent);
-      transition: width 0.1s linear; width: 0%;
-    }
+    .progress { position: fixed; top: 60px; left: 0; right: 0; height: 2px; background: var(--border); z-index: 99; }
+    .progress-bar { height: 100%; background: var(--accent); transition: width 0.1s linear; width: 0%; }
   </style>
 </head>
 <body>
 
-<!-- TOP NAV -->
 <header class="topbar">
   <button class="hamburger" onclick="toggleSidebar()">☰</button>
   <a class="topbar-logo" href="#introduction">
-    <span class="flame">🔥</span>
-    Flow<span>Forge</span>
+    <span class="flame">🔥</span>Flow<span>Forge</span>
   </a>
   <span class="topbar-version">v1.0.0</span>
   <nav class="topbar-links">
@@ -473,13 +355,9 @@
   </nav>
 </header>
 
-<!-- PROGRESS BAR -->
 <div class="progress"><div class="progress-bar" id="prog"></div></div>
-
-<!-- SIDEBAR BACKDROP -->
 <div class="sidebar-backdrop" id="backdrop" onclick="closeSidebar()"></div>
 
-<!-- SIDEBAR -->
 <nav class="sidebar" id="sidebar">
   <div class="nav-section">
     <div class="nav-section-title">Overview</div>
@@ -497,9 +375,9 @@
   <div class="nav-section">
     <div class="nav-section-title">Features</div>
     <a class="nav-link" href="#http-server">HTTP Server</a>
-    <a class="nav-link" href="#startup-banner">Startup Banner</a>
-    <a class="nav-link" href="#middleware">Middleware</a>
+    <a class="nav-link" href="#middleware">Middleware & AOP</a>
     <a class="nav-link" href="#authentication">Authentication (JWT)</a>
+    <a class="nav-link" href="#validation">Validation</a>
     <a class="nav-link" href="#exception-handling">Exception Handling</a>
   </div>
   <div class="nav-section">
@@ -511,13 +389,13 @@
   <div class="nav-section">
     <div class="nav-section-title">Reference</div>
     <a class="nav-link" href="#architecture">Architecture</a>
+    <a class="nav-link" href="#annotations">Annotation Reference</a>
     <a class="nav-link" href="#best-practices">Best Practices</a>
-    <a class="nav-link" href="#roadmap">Roadmap <span class="nav-badge">new</span></a>
-    <a class="nav-link" href="#status">Status</a>
+    <a class="nav-link" href="#roadmap">Roadmap</a>
+    <a class="nav-link" href="#status">Status <span class="nav-badge">updated</span></a>
   </div>
 </nav>
 
-<!-- MAIN -->
 <main class="main">
 
   <!-- HERO -->
@@ -531,22 +409,21 @@
       <a href="#getting-started" class="btn btn-primary">🚀 Get Started</a>
       <a href="#routing" class="btn btn-outline">📖 Read the Docs</a>
     </div>
-
     <div class="features">
       <div class="feature-card">
         <div class="feature-icon">🗺️</div>
         <div class="feature-title">Annotation Routing</div>
-        <div class="feature-desc">@Get, @Post, @PathVariable and more out of the box</div>
+        <div class="feature-desc">@Get, @Post, @Put, @Delete with path variables and query params</div>
       </div>
       <div class="feature-card">
         <div class="feature-icon">💉</div>
         <div class="feature-title">Dependency Injection</div>
-        <div class="feature-desc">Constructor-based DI with zero external libraries</div>
+        <div class="feature-desc">Field injection via @Inject, @Value, and @ConfigurationProperties</div>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">⚙️</div>
-        <div class="feature-title">Embedded Server</div>
-        <div class="feature-desc">Built-in HTTP server — no Tomcat, no Jetty needed</div>
+        <div class="feature-icon">🛡️</div>
+        <div class="feature-title">Middleware & AOP</div>
+        <div class="feature-desc">@Before, @After, @Around per-route middleware with JWT auth</div>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🛠️</div>
@@ -568,13 +445,11 @@
     </div>
 
     <h3>Step 1 — Build the Framework</h3>
-    <p>Clone the repository and install the framework into your local Maven repository.</p>
     <div class="terminal">
       <div class="terminal-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
       <div class="terminal-body">
         <div><span class="prompt">$</span> cd flowforge_framework</div>
         <div><span class="prompt">$</span> mvn clean install</div>
-        <div class="out">…</div>
         <div class="ok">[INFO] BUILD SUCCESS</div>
       </div>
     </div>
@@ -594,33 +469,40 @@
       <div class="terminal-body">
         <div><span class="prompt">$</span> mvn exec:java</div>
         <div class="out">&nbsp;</div>
-        <div class="ok">🚀 FlowForge Framework</div>
+        <div class="ok">🚀 FlowForge Framework :: (v1.0)</div>
         <div class="out">&nbsp;</div>
-        <div class="out">🔍 Scanning package: example</div>
-        <div class="out">📦 Bean Registered: example.UserController</div>
-        <div class="out">🚀 Controller Ready: example.UserController</div>
-        <div class="out">&nbsp;</div>
+        <div class="out">Scanning package: example</div>
+        <div class="out">Bean Registered: example.UserController</div>
+        <div class="out">Controller Ready: example.UserController</div>
         <div class="out">=================================</div>
-        <div class="ok">🚀 FlowForge Started Successfully</div>
+        <div class="ok">FlowForge Started Successfully</div>
         <div class="out">=================================</div>
-        <div class="out">🌐 Server Port      : 9091</div>
-        <div class="out">🔗 Docs UI          : http://localhost:9091/dev/docs-ui</div>
+        <div class="out">Server Port      : 9091</div>
+        <div class="out">Docs UI          : http://localhost:9091/dev/docs-ui</div>
         <div class="out">=================================</div>
       </div>
     </div>
 
     <h3>Entry Point</h3>
+    <p>The main class must be annotated with <code>@App</code>. <code>Flow.run()</code> will throw an error if <code>@App</code> is missing.</p>
     <div class="code-wrap">
       <button class="copy-btn" onclick="copyCode(this)">copy</button>
       <pre><code><span class="kw">package</span> example;
 
 <span class="kw">import</span> flowforge.Flow;
+<span class="kw">import</span> flowforge.core.annotations.App;
 
+<span class="an">@App</span>
 <span class="kw">public class</span> <span class="ty">AppMain</span> {
     <span class="kw">public static void</span> <span class="fn">main</span>(<span class="ty">String</span>[] args) {
         <span class="ty">Flow</span>.<span class="fn">run</span>(<span class="ty">AppMain</span>.class);
     }
 }</code></pre>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-title">⚠️ @App is Required</div>
+      <p>Calling <code>Flow.run()</code> on a class without <code>@App</code> throws <code>IllegalArgumentException</code> immediately.</p>
     </div>
   </section>
 
@@ -635,14 +517,18 @@
     <div class="code-wrap">
       <pre><code>flowforge/
  ├── core/
- │    ├── annotations/
- │    ├── context/
- │    ├── dispatcher/
- │    ├── scanner/
- │    ├── server/
- │    ├── config/
- │    └── banner/
- ├── cli/
+ │    ├── annotations/     @Get, @Post, @Put, @Delete, @App, @Auth, @Inject ...
+ │    ├── banner/          Startup banner
+ │    ├── config/          Config, ConfigBinder
+ │    ├── context/         Context, Injector
+ │    ├── dev/             OpenApiBuilder
+ │    ├── dispatcher/      Dispatcher
+ │    ├── middleware/       Middleware, MiddlewareChain, AuthMiddleware
+ │    ├── scanner/         ClassScanner (recursive)
+ │    ├── security/        JwtUtil
+ │    ├── server/          Server, ExceptionManager, ErrorResponse
+ │    └── validation/      Validator
+ ├── cli/                  FlowForgeCLI, ProjectGenerator
  └── Flow.java</code></pre>
     </div>
 
@@ -650,11 +536,19 @@
     <div class="code-wrap">
       <pre><code>my-app/
  ├── src/main/java/example/
- │    ├── AppMain.java
- │    └── UserController.java
+ │    ├── AppMain.java               @App entry point
+ │    ├── UserController.java        @Controller with routes
+ │    └── GlobalExceptionHandler.java
  ├── src/main/resources/
- │    └── app.properties
+ │    ├── app.properties             base config
+ │    ├── app-dev.properties         dev overrides
+ │    └── app-prod.properties        prod overrides
  └── pom.xml</code></pre>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title">✅ Sub-package Support</div>
+      <p>ClassScanner scans recursively — controllers in <code>example.controllers</code>, services in <code>example.services</code> are all auto-detected.</p>
     </div>
   </section>
 
@@ -664,21 +558,22 @@
   <section class="doc-section" id="bootstrapping">
     <div class="section-label">Core</div>
     <h2>Bootstrapping</h2>
-    <p>FlowForge starts via a single call: <code>Flow.run(AppMain.class)</code>. This triggers the full startup sequence.</p>
+    <p>FlowForge starts via <code>Flow.run(AppMain.class)</code>. This triggers the full startup sequence in order.</p>
 
-    <table>
-      <thead><tr><th>#</th><th>Phase</th><th>Description</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td>Classpath Scanning</td><td>Discovers all annotated classes in the base package</td></tr>
-        <tr><td>2</td><td>Bean Registration</td><td>Registers controllers, services, and components</td></tr>
-        <tr><td>3</td><td>Dependency Injection</td><td>Resolves and injects constructor dependencies</td></tr>
-        <tr><td>4</td><td>Route Mapping</td><td>Maps annotated methods to HTTP paths</td></tr>
-        <tr><td>5</td><td>Server Startup</td><td>Starts the embedded HTTP server</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Component Scanning</h3>
-    <p>FlowForge scans the base package of your main class (e.g. <code>example.*</code>) and automatically detects <strong>@Controller</strong>, <strong>@Service</strong>, <strong>@Component</strong>, and <strong>@ConfigurationProperties</strong> classes.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Phase</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>@App Check</td><td>Validates the entry class has @App — fails fast if missing</td></tr>
+          <tr><td>1</td><td>Banner</td><td>Prints the FlowForge ASCII banner</td></tr>
+          <tr><td>2</td><td>Classpath Scan</td><td>Recursively discovers all annotated classes in the base package</td></tr>
+          <tr><td>3</td><td>Bean Registration</td><td>Instantiates and registers @Component, @Service, @Controller, @ConfigurationProperties</td></tr>
+          <tr><td>4</td><td>Dependency Injection</td><td>Resolves @Inject, @Value, and config bindings for all beans</td></tr>
+          <tr><td>5</td><td>Route Mapping</td><td>Registers @Get/@Post/@Put/@Delete methods from @Controller beans</td></tr>
+          <tr><td>6</td><td>Server Startup</td><td>Starts the embedded HTTP server on the configured port</td></tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
   <hr class="divider">
@@ -692,56 +587,79 @@
     <div class="code-wrap">
       <button class="copy-btn" onclick="copyCode(this)">copy</button>
       <pre><code><span class="an">@Controller</span>
+<span class="an">@Tag</span>(<span class="str">"User APIs"</span>)
 <span class="kw">public class</span> <span class="ty">UserController</span> {
 
     <span class="an">@Get</span>(<span class="str">"/hello"</span>)
     <span class="kw">public</span> <span class="ty">String</span> <span class="fn">hello</span>() {
-        <span class="kw">return</span> <span class="str">"Hello FlowForge 🚀"</span>;
+        <span class="kw">return</span> <span class="str">"Hello FlowForge"</span>;
     }
 
     <span class="an">@Post</span>(<span class="str">"/create"</span>)
-    <span class="kw">public</span> <span class="ty">String</span> <span class="fn">create</span>(<span class="an">@RequestBody</span> <span class="ty">String</span> body) {
-        <span class="kw">return</span> <span class="str">"Created: "</span> + body;
+    <span class="kw">public</span> <span class="ty">String</span> <span class="fn">create</span>(<span class="an">@RequestBody</span> <span class="ty">UserRequest</span> req) {
+        <span class="kw">return</span> <span class="str">"Created: "</span> + req.name;
+    }
+
+    <span class="an">@Put</span>(<span class="str">"/user/{id}"</span>)
+    <span class="kw">public</span> <span class="ty">String</span> <span class="fn">update</span>(<span class="an">@PathVariable</span>(<span class="str">"id"</span>) <span class="ty">int</span> id, <span class="an">@RequestBody</span> <span class="ty">UserRequest</span> req) {
+        <span class="kw">return</span> <span class="str">"Updated: "</span> + id;
+    }
+
+    <span class="an">@Delete</span>(<span class="str">"/user/{id}"</span>)
+    <span class="kw">public</span> <span class="ty">String</span> <span class="fn">delete</span>(<span class="an">@PathVariable</span>(<span class="str">"id"</span>) <span class="ty">int</span> id) {
+        <span class="kw">return</span> <span class="str">"Deleted: "</span> + id;
     }
 }</code></pre>
     </div>
 
-    <h3>Supported Annotations</h3>
-    <table>
-      <thead><tr><th>Annotation</th><th>Description</th></tr></thead>
-      <tbody>
-        <tr><td>@Controller</td><td>Marks a controller class</td></tr>
-        <tr><td>@Get</td><td>Handles GET requests</td></tr>
-        <tr><td>@Post</td><td>Handles POST requests</td></tr>
-        <tr><td>@RequestBody</td><td>Reads the request body</td></tr>
-        <tr><td>@ExceptionHandler</td><td>Handles exceptions globally</td></tr>
-      </tbody>
-    </table>
+    <h3>HTTP Method Annotations</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Annotation</th><th>HTTP Method</th><th>Body Support</th></tr></thead>
+        <tbody>
+          <tr><td>@Get("/path")</td><td>GET</td><td>No</td></tr>
+          <tr><td>@Post("/path")</td><td>POST</td><td>Required</td></tr>
+          <tr><td>@Put("/path")</td><td>PUT</td><td>Required</td></tr>
+          <tr><td>@Delete("/path")</td><td>DELETE</td><td>Optional</td></tr>
+        </tbody>
+      </table>
+    </div>
 
     <h3>Path Variables</h3>
     <div class="code-wrap">
       <button class="copy-btn" onclick="copyCode(this)">copy</button>
-      <pre><code><span class="an">@Get</span>(<span class="str">"/user/{id}"</span>)
-<span class="kw">public</span> <span class="ty">String</span> <span class="fn">getUser</span>(<span class="an">@PathVariable</span>(<span class="str">"id"</span>) <span class="ty">String</span> id) {
-    <span class="kw">return</span> <span class="str">"User: "</span> + id;
+      <pre><code><span class="an">@Get</span>(<span class="str">"/user/{id}/orders"</span>)
+<span class="kw">public</span> <span class="ty">String</span> <span class="fn">orders</span>(
+    <span class="an">@PathVariable</span>(<span class="str">"id"</span>) <span class="ty">int</span> id,
+    <span class="an">@QueryParam</span>(<span class="str">"status"</span>) <span class="ty">String</span> status
+) {
+    <span class="kw">return</span> <span class="str">"User="</span> + id + <span class="str">", Status="</span> + status;
 }</code></pre>
     </div>
 
-    <h3>Query Parameters</h3>
+    <h3>Optional Query Parameters</h3>
     <div class="code-wrap">
       <button class="copy-btn" onclick="copyCode(this)">copy</button>
-      <pre><code><span class="an">@Get</span>(<span class="str">"/search"</span>)
-<span class="kw">public</span> <span class="ty">String</span> <span class="fn">search</span>(<span class="an">@QueryParam</span>(<span class="str">"q"</span>) <span class="ty">String</span> q) {
-    <span class="kw">return</span> <span class="str">"Query: "</span> + q;
+      <pre><code><span class="an">@Get</span>(<span class="str">"/filter"</span>)
+<span class="kw">public</span> <span class="ty">String</span> <span class="fn">filter</span>(
+    <span class="an">@QueryParam</span>(<span class="str">"category"</span>) <span class="ty">String</span> category,
+    <span class="an">@QueryParam</span>(value=<span class="str">"page"</span>, required=<span class="nb">false</span>) <span class="ty">Integer</span> page
+) {
+    <span class="kw">return</span> <span class="str">"Category="</span> + category + <span class="str">", Page="</span> + page;
 }</code></pre>
     </div>
 
-    <h3>Request Body</h3>
+    <h3>Grouping with @Tag</h3>
+    <p><code>@Tag</code> can be placed on a controller class or individual method. Method-level tag overrides the class-level tag. Tags are used to group routes in the Docs UI.</p>
     <div class="code-wrap">
       <button class="copy-btn" onclick="copyCode(this)">copy</button>
-      <pre><code><span class="an">@Post</span>(<span class="str">"/create"</span>)
-<span class="kw">public</span> <span class="ty">String</span> <span class="fn">create</span>(<span class="an">@RequestBody</span> <span class="ty">String</span> body) {
-    <span class="kw">return</span> <span class="str">"Created: "</span> + body;
+      <pre><code><span class="an">@Tag</span>(<span class="str">"User APIs"</span>)       <span class="cm">// all routes in this controller get this tag</span>
+<span class="an">@Controller</span>
+<span class="kw">public class</span> <span class="ty">UserController</span> {
+
+    <span class="an">@Tag</span>(<span class="str">"Admin APIs"</span>)    <span class="cm">// overrides class-level tag for this route only</span>
+    <span class="an">@Get</span>(<span class="str">"/admin"</span>)
+    <span class="kw">public</span> <span class="ty">String</span> <span class="fn">admin</span>() { <span class="kw">return</span> <span class="str">"admin"</span>; }
 }</code></pre>
     </div>
   </section>
@@ -752,58 +670,78 @@
   <section class="doc-section" id="dependency-injection">
     <div class="section-label">Core</div>
     <h2>Dependency Injection</h2>
-    <p>FlowForge includes basic dependency injection. Constructor injection and field injection are on the roadmap.</p>
+    <p>FlowForge uses field-based injection. Annotate a field with <code>@Inject</code> and the framework resolves and injects the bean automatically at startup.</p>
 
-    <h3>Currently Supported</h3>
-    <ul>
-      <li>Basic bean registration via annotations</li>
-      <li>Type-based bean lookup</li>
-      <li>Manual constructor wiring</li>
-    </ul>
-
-    <div class="callout warn">
-      <div class="callout-title">⚠️ Not Yet Implemented</div>
-      <p><code>@Autowired</code>, constructor injection, and bean scopes are planned for a future release.</p>
-    </div>
-
-    <h3>Bean Annotations</h3>
-    <table>
-      <thead><tr><th>Annotation</th><th>Purpose</th></tr></thead>
-      <tbody>
-        <tr><td>@Controller</td><td>HTTP handler class</td></tr>
-        <tr><td>@Service</td><td>Business logic class</td></tr>
-        <tr><td>@Component</td><td>Generic managed bean</td></tr>
-        <tr><td>@ConfigurationProperties</td><td>Config-bound bean</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Example</h3>
+    <h3>@Inject</h3>
     <div class="code-wrap">
       <button class="copy-btn" onclick="copyCode(this)">copy</button>
-      <pre><code><span class="an">@Service</span>
-<span class="kw">public class</span> <span class="ty">UserService</span> {
-    <span class="kw">public</span> <span class="ty">String</span> <span class="fn">getData</span>() {
-        <span class="kw">return</span> <span class="str">"data"</span>;
-    }
-}
-
-<span class="an">@Controller</span>
+      <pre><code><span class="an">@Controller</span>
 <span class="kw">public class</span> <span class="ty">UserController</span> {
 
-    <span class="kw">private</span> <span class="ty">UserService</span> userService;
+    <span class="an">@Inject</span>
+    <span class="kw">private</span> <span class="ty">UserService</span> service;
 
-    <span class="kw">public</span> <span class="fn">UserController</span>(<span class="ty">UserService</span> userService) {
-        <span class="kw">this</span>.userService = userService;
+    <span class="an">@Inject</span>
+    <span class="kw">private</span> <span class="ty">ServerConfig</span> config;
+
+    <span class="an">@Get</span>(<span class="str">"/app"</span>)
+    <span class="kw">public</span> <span class="ty">String</span> <span class="fn">app</span>() {
+        <span class="kw">return</span> service.<span class="fn">getAppName</span>();
     }
 }</code></pre>
     </div>
 
+    <h3>@Value — Config Injection</h3>
+    <p>Inject individual config properties directly into fields. Supports a <code>defaultValue</code> fallback.</p>
+    <div class="code-wrap">
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+      <pre><code><span class="an">@Service</span>
+<span class="kw">public class</span> <span class="ty">UserService</span> {
+
+    <span class="an">@Value</span>(value = <span class="str">"app.name"</span>, defaultValue = <span class="str">"DefaultApp"</span>)
+    <span class="kw">private</span> <span class="ty">String</span> appName;
+
+    <span class="kw">public</span> <span class="ty">String</span> <span class="fn">getAppName</span>() { <span class="kw">return</span> appName; }
+}</code></pre>
+    </div>
+
+    <h3>@ConfigurationProperties — Typed Config</h3>
+    <p>Bind a whole config prefix to a class. Fields are auto-mapped by name.</p>
+    <div class="code-wrap">
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+      <pre><code><span class="cm">// app.properties: server.port=9091  server.name=FlowForgeServer</span>
+
+<span class="an">@ConfigurationProperties</span>(<span class="str">"server"</span>)
+<span class="kw">public class</span> <span class="ty">ServerConfig</span> {
+    <span class="kw">public int</span> port;
+    <span class="kw">public</span> <span class="ty">String</span> name;
+}
+
+<span class="cm">// Inject it anywhere with @Inject</span>
+<span class="an">@Inject</span>
+<span class="kw">private</span> <span class="ty">ServerConfig</span> config;</code></pre>
+    </div>
+
+    <h3>Bean Annotations</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Annotation</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>@Controller</td><td>HTTP handler class — routes registered automatically</td></tr>
+          <tr><td>@Service</td><td>Business logic class</td></tr>
+          <tr><td>@Component</td><td>Generic managed bean</td></tr>
+          <tr><td>@ConfigurationProperties</td><td>Config-bound bean with prefix mapping</td></tr>
+        </tbody>
+      </table>
+    </div>
+
     <h3>Injection Lifecycle</h3>
     <ol>
-      <li>Scan all classes in base package</li>
-      <li>Instantiate beans in dependency order</li>
-      <li>Register instances in the context</li>
-      <li>Inject via constructor parameters</li>
+      <li>Scan all classes in base package recursively</li>
+      <li>Instantiate beans with no-arg constructor</li>
+      <li>Register instances in <code>Context</code></li>
+      <li>For each bean: resolve <code>@Inject</code> fields, inject <code>@Value</code> fields, run <code>ConfigBinder</code></li>
+      <li>If a dependency isn't found in context, it's created on-demand and registered</li>
     </ol>
   </section>
 
@@ -813,78 +751,71 @@
   <section class="doc-section" id="configuration">
     <div class="section-label">Core</div>
     <h2>Configuration System</h2>
-    <p>Configuration files live in <code>src/main/resources/</code>.</p>
+    <p>Configuration files live in <code>src/main/resources/</code>. Base config is always loaded first, then the active environment file overrides it.</p>
 
-    <h3>Supported Files</h3>
-    <table>
-      <thead><tr><th>File</th><th>Purpose</th></tr></thead>
-      <tbody>
-        <tr><td>app.properties</td><td>Base configuration (always loaded)</td></tr>
-        <tr><td>app-dev.properties</td><td>Dev-environment overrides</td></tr>
-        <tr><td>app-prod.properties</td><td>Production overrides</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Example — app.properties</h3>
+    <h3>Profile Resolution</h3>
     <div class="code-wrap">
       <button class="copy-btn" onclick="copyCode(this)">copy</button>
-      <pre><code>server.port=9091
-app.name=MyFlowForgeApp
-flow.env=dev
-flow.banner=true</code></pre>
+      <pre><code><span class="cm"># app.properties (always loaded)</span>
+app.env=dev
+server.port=8080
+
+<span class="cm"># app-dev.properties (loaded when app.env=dev)</span>
+server.port=9091
+app.name=FlowForge-DEV
+
+<span class="cm"># app-prod.properties (loaded when app.env=prod)</span>
+server.port=80
+app.name=FlowForge-PROD</code></pre>
     </div>
 
-    <h3>Supported Keys</h3>
-    <table>
-      <thead><tr><th>Key</th><th>Description</th></tr></thead>
-      <tbody>
-        <tr><td>server.port</td><td>Port the HTTP server binds to</td></tr>
-        <tr><td>app.name</td><td>Application display name</td></tr>
-        <tr><td>flow.env</td><td>Active environment (dev / prod)</td></tr>
-        <tr><td>flow.banner</td><td>Enable or disable the startup banner</td></tr>
-      </tbody>
-    </table>
+    <h3>Supported Config Files</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>File</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>app.properties</td><td>Base configuration — always loaded first</td></tr>
+          <tr><td>app-dev.properties</td><td>Dev overrides — loaded when app.env=dev</td></tr>
+          <tr><td>app-prod.properties</td><td>Prod overrides — loaded when app.env=prod</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Common Keys</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Key</th><th>Default</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>server.port</td><td>8080</td><td>Port the HTTP server binds to</td></tr>
+          <tr><td>server.name</td><td>—</td><td>Server display name</td></tr>
+          <tr><td>app.name</td><td>—</td><td>Application display name</td></tr>
+          <tr><td>app.env</td><td>—</td><td>Active profile (dev / prod)</td></tr>
+          <tr><td>auth.enabled</td><td>true</td><td>Enable or disable JWT auth middleware</td></tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
   <hr class="divider">
 
-  <!-- STARTUP BANNER -->
-  <section class="doc-section" id="startup-banner">
-    <div class="section-label">Features</div>
-    <h2>Startup Banner</h2>
-    <p>FlowForge displays a startup banner in the console every time your application boots.</p>
-
-    <div class="terminal">
-      <div class="terminal-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
-      <div class="terminal-body">
-        <div class="ok">🚀 FlowForge Framework</div>
-        <div class="out">:: FlowForge :: (v1.0)</div>
-        <div class="out">&nbsp;</div>
-        <div class="out">Java Version    : 17.0.x</div>
-        <div class="out">Working Dir     : /your/project/path</div>
-        <div class="out">Startup Time    : 312ms</div>
-        <div class="out">Docs URL        : http://localhost:9091/dev/docs-ui</div>
-      </div>
-    </div>
-
-    <p>Disable the banner by setting <code>flow.banner=false</code> in <code>app.properties</code>.</p>
-  </section>
-
-  <hr class="divider">
+  <!-- HTTP SERVER -->
   <section class="doc-section" id="http-server">
     <div class="section-label">Features</div>
     <h2>HTTP Server</h2>
-    <p>FlowForge ships with a built-in HTTP server powered by <code>com.sun.net.httpserver.HttpServer</code> — no external server installation required.</p>
+    <p>FlowForge ships with a built-in HTTP server powered by <code>com.sun.net.httpserver.HttpServer</code> — no Tomcat, no Jetty, no external installation required.</p>
 
-    <table>
-      <thead><tr><th>Property</th><th>Detail</th></tr></thead>
-      <tbody>
-        <tr><td>Implementation</td><td>com.sun.net.httpserver.HttpServer</td></tr>
-        <tr><td>Default Port</td><td>9091</td></tr>
-        <tr><td>External deps</td><td>None</td></tr>
-        <tr><td>Routing</td><td>Custom annotation-driven dispatcher</td></tr>
-      </tbody>
-    </table>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Property</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td>Implementation</td><td>com.sun.net.httpserver.HttpServer</td></tr>
+          <tr><td>Default Port</td><td>8080 (overridden by server.port in config)</td></tr>
+          <tr><td>External deps</td><td>None</td></tr>
+          <tr><td>Routing</td><td>Annotation-driven dispatcher with path variable matching</td></tr>
+          <tr><td>Body parsing</td><td>Jackson (JSON) for @RequestBody parameters</td></tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
   <hr class="divider">
@@ -892,25 +823,76 @@ flow.banner=true</code></pre>
   <!-- MIDDLEWARE -->
   <section class="doc-section" id="middleware">
     <div class="section-label">Features</div>
-    <h2>Middleware System</h2>
-    <p>Middleware allows pre/post request processing. Common uses: authentication, logging, and input validation.</p>
+    <h2>Middleware & AOP</h2>
+    <p>FlowForge supports per-route middleware via AOP-style annotations. Any class implementing the <code>Middleware</code> interface can be attached to a route.</p>
 
-    <h3>Using @Auth Middleware</h3>
+    <h3>Middleware Interface</h3>
     <div class="code-wrap">
       <button class="copy-btn" onclick="copyCode(this)">copy</button>
-      <pre><code><span class="an">@Auth</span>
-<span class="an">@Get</span>(<span class="str">"/secure"</span>)
-<span class="kw">public</span> <span class="ty">String</span> <span class="fn">secure</span>() {
-    <span class="kw">return</span> <span class="str">"secured"</span>;
+      <pre><code><span class="kw">public interface</span> <span class="ty">Middleware</span> {
+    <span class="kw">default void</span>   <span class="fn">before</span>(<span class="ty">RequestContext</span> ctx) {}
+    <span class="kw">default void</span>   <span class="fn">after</span>(<span class="ty">RequestContext</span> ctx, <span class="ty">Object</span> result) {}
+    <span class="kw">default</span> <span class="ty">Object</span> <span class="fn">around</span>(<span class="ty">RequestContext</span> ctx, <span class="ty">MiddlewareChain</span> next) <span class="kw">throws</span> <span class="ty">Exception</span> {
+        <span class="kw">return</span> next.<span class="fn">proceed</span>(ctx);
+    }
 }</code></pre>
     </div>
 
-    <h4>Available Middleware Hooks</h4>
-    <ul>
-      <li><strong>@Auth</strong> — Validates JWT token before the handler runs</li>
-      <li><strong>Logging</strong> — Automatic request/response logging</li>
-      <li><strong>Validation</strong> — Request body validation</li>
-    </ul>
+    <h3>AOP Annotations</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Annotation</th><th>Hook</th><th>When it runs</th></tr></thead>
+        <tbody>
+          <tr><td>@Before(MyMiddleware.class)</td><td>before()</td><td>Before the controller method</td></tr>
+          <tr><td>@After(MyMiddleware.class)</td><td>after()</td><td>After the controller method</td></tr>
+          <tr><td>@Around(MyMiddleware.class)</td><td>around()</td><td>Wraps the entire execution</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-title">ℹ️ Execution Order</div>
+      <p>Chain order: <strong>@Around → @Before → controller → @After</strong>. If the same class is used in multiple annotations, it is added to the chain only once.</p>
+    </div>
+
+    <h3>Custom Middleware Example</h3>
+    <div class="code-wrap">
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+      <pre><code><span class="kw">public class</span> <span class="ty">LogMiddleware</span> <span class="kw">implements</span> <span class="ty">Middleware</span> {
+
+    <span class="an">@Override</span>
+    <span class="kw">public void</span> <span class="fn">before</span>(<span class="ty">RequestContext</span> ctx) {
+        <span class="ty">System</span>.out.<span class="fn">println</span>(<span class="str">"BEFORE: "</span> + ctx.exchange.<span class="fn">getRequestURI</span>());
+    }
+
+    <span class="an">@Override</span>
+    <span class="kw">public void</span> <span class="fn">after</span>(<span class="ty">RequestContext</span> ctx, <span class="ty">Object</span> result) {
+        <span class="ty">System</span>.out.<span class="fn">println</span>(<span class="str">"AFTER: "</span> + result);
+    }
+}
+
+<span class="kw">public class</span> <span class="ty">TimeMiddleware</span> <span class="kw">implements</span> <span class="ty">Middleware</span> {
+
+    <span class="an">@Override</span>
+    <span class="kw">public</span> <span class="ty">Object</span> <span class="fn">around</span>(<span class="ty">RequestContext</span> ctx, <span class="ty">MiddlewareChain</span> next) <span class="kw">throws</span> <span class="ty">Exception</span> {
+        <span class="kw">long</span> start = <span class="ty">System</span>.<span class="fn">currentTimeMillis</span>();
+        <span class="ty">Object</span> result = next.<span class="fn">proceed</span>(ctx);
+        <span class="ty">System</span>.out.<span class="fn">println</span>(<span class="str">"Time: "</span> + (<span class="ty">System</span>.<span class="fn">currentTimeMillis</span>() - start) + <span class="str">"ms"</span>);
+        <span class="kw">return</span> result;
+    }
+}</code></pre>
+    </div>
+
+    <h3>Attaching Middleware to a Route</h3>
+    <div class="code-wrap">
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+      <pre><code><span class="an">@Before</span>(<span class="ty">LogMiddleware</span>.class)
+<span class="an">@Around</span>(<span class="ty">TimeMiddleware</span>.class)
+<span class="an">@Get</span>(<span class="str">"/data"</span>)
+<span class="kw">public</span> <span class="ty">String</span> <span class="fn">data</span>() {
+    <span class="kw">return</span> <span class="str">"result"</span>;
+}</code></pre>
+    </div>
   </section>
 
   <hr class="divider">
@@ -919,20 +901,94 @@ flow.banner=true</code></pre>
   <section class="doc-section" id="authentication">
     <div class="section-label">Features</div>
     <h2>Authentication (JWT)</h2>
-    <p>FlowForge has first-class JWT support via <code>io.jsonwebtoken (jjwt)</code>.</p>
+    <p>FlowForge has first-class JWT support. Use <code>@Auth</code> on a method or class to require a valid Bearer token.</p>
 
-    <table>
-      <thead><tr><th>Feature</th><th>Supported</th></tr></thead>
-      <tbody>
-        <tr><td>Token Validation</td><td>✅</td></tr>
-        <tr><td>Claims Extraction</td><td>✅</td></tr>
-        <tr><td>Auth Middleware Integration</td><td>✅</td></tr>
-      </tbody>
-    </table>
+    <h3>Protecting Routes</h3>
+    <div class="code-wrap">
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+      <pre><code><span class="an">@Auth</span>                   <span class="cm">// any valid token</span>
+<span class="an">@Get</span>(<span class="str">"/secure"</span>)
+<span class="kw">public</span> <span class="ty">String</span> <span class="fn">secure</span>() { <span class="kw">return</span> <span class="str">"protected"</span>; }
+
+<span class="an">@Auth</span>(role = <span class="str">"ADMIN"</span>)   <span class="cm">// token must carry role=ADMIN</span>
+<span class="an">@Get</span>(<span class="str">"/admin"</span>)
+<span class="kw">public</span> <span class="ty">String</span> <span class="fn">admin</span>() { <span class="kw">return</span> <span class="str">"admin only"</span>; }
+
+<span class="an">@Auth</span>                   <span class="cm">// class-level: all routes require auth</span>
+<span class="an">@Controller</span>
+<span class="kw">public class</span> <span class="ty">SecureController</span> { ... }</code></pre>
+    </div>
+
+    <h3>Generating a Token</h3>
+    <div class="code-wrap">
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+      <pre><code><span class="ty">String</span> token = <span class="ty">JwtUtil</span>.<span class="fn">generateToken</span>(<span class="str">"dipak"</span>, <span class="str">"ADMIN"</span>);
+<span class="cm">// pass as: Authorization: Bearer &lt;token&gt;</span></code></pre>
+    </div>
+
+    <h3>Auth Behaviour</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Condition</th><th>Response</th></tr></thead>
+        <tbody>
+          <tr><td>No Authorization header</td><td>401 Missing or invalid token</td></tr>
+          <tr><td>Invalid / expired token</td><td>401 Invalid or expired token</td></tr>
+          <tr><td>Wrong role</td><td>403 Forbidden: Insufficient role</td></tr>
+          <tr><td>Valid token + correct role</td><td>200 — proceeds to controller</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title">✅ Disable Auth in Dev</div>
+      <p>Set <code>auth.enabled=false</code> in <code>app-dev.properties</code> to bypass JWT checks during development.</p>
+    </div>
 
     <div class="callout warn">
       <div class="callout-title">⚠️ Security Note</div>
-      <p>Always use strong, environment-specific JWT secrets. Never hardcode secrets in source files.</p>
+      <p>Never hardcode JWT secrets in source files. Use environment-specific config files.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- VALIDATION -->
+  <section class="doc-section" id="validation">
+    <div class="section-label">Features</div>
+    <h2>Validation</h2>
+    <p>Annotate controller method parameters directly. Validation runs before the method is invoked and throws a <code>RuntimeException</code> on failure.</p>
+
+    <h3>Available Constraints</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Annotation</th><th>Target</th><th>Behaviour</th></tr></thead>
+        <tbody>
+          <tr><td>@NotNull</td><td>Any parameter</td><td>Fails if value is null</td></tr>
+          <tr><td>@Min(n)</td><td>Numeric parameter</td><td>Fails if value &lt; n</td></tr>
+          <tr><td>@Max(n)</td><td>Numeric parameter</td><td>Fails if value &gt; n</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Example</h3>
+    <div class="code-wrap">
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+      <pre><code><span class="an">@Get</span>(<span class="str">"/user"</span>)
+<span class="kw">public</span> <span class="ty">String</span> <span class="fn">getUser</span>(
+    <span class="an">@QueryParam</span>(<span class="str">"id"</span>) <span class="an">@NotNull</span> <span class="an">@Min</span>(<span class="nb">1</span>) <span class="ty">Integer</span> id,
+    <span class="an">@QueryParam</span>(<span class="str">"age"</span>) <span class="an">@Min</span>(<span class="nb">1</span>) <span class="an">@Max</span>(<span class="nb">120</span>) <span class="ty">Integer</span> age
+) {
+    <span class="kw">return</span> <span class="str">"id="</span> + id + <span class="str">", age="</span> + age;
+}</code></pre>
+    </div>
+
+    <h3>Validation Error Response</h3>
+    <p>Validation failures are caught by the exception handling system. Define a handler for <code>RuntimeException</code> to return a clean JSON error.</p>
+    <div class="code-wrap">
+      <pre><code>{
+  <span class="str">"error"</span>: <span class="str">"RUNTIME_ERROR"</span>,
+  <span class="str">"message"</span>: <span class="str">"Parameter 'id' must be >= 1"</span>
+}</code></pre>
     </div>
   </section>
 
@@ -942,7 +998,7 @@ flow.banner=true</code></pre>
   <section class="doc-section" id="exception-handling">
     <div class="section-label">Features</div>
     <h2>Exception Handling</h2>
-    <p>Define a global exception handler to return consistent error responses across your entire API.</p>
+    <p>Define a global exception handler in any <code>@Controller</code> class. Use <code>@ExceptionHandler</code> to map exception types to handler methods, and <code>@ResponseStatus</code> to control the HTTP status code.</p>
 
     <h3>Global Handler</h3>
     <div class="code-wrap">
@@ -950,18 +1006,32 @@ flow.banner=true</code></pre>
       <pre><code><span class="an">@Controller</span>
 <span class="kw">public class</span> <span class="ty">GlobalExceptionHandler</span> {
 
+    <span class="an">@ResponseStatus</span>(<span class="nb">500</span>)
     <span class="an">@ExceptionHandler</span>(<span class="ty">RuntimeException</span>.class)
-    <span class="kw">public</span> <span class="ty">ErrorResponse</span> <span class="fn">handle</span>(<span class="ty">RuntimeException</span> e) {
-        <span class="kw">return new</span> <span class="ty">ErrorResponse</span>(<span class="str">"ERROR"</span>, e.<span class="fn">getMessage</span>());
+    <span class="kw">public</span> <span class="ty">ErrorResponse</span> <span class="fn">handleRuntime</span>(<span class="ty">RuntimeException</span> e) {
+        <span class="kw">return new</span> <span class="ty">ErrorResponse</span>(<span class="str">"RUNTIME_ERROR"</span>, e.<span class="fn">getMessage</span>());
+    }
+
+    <span class="an">@ResponseStatus</span>(<span class="nb">400</span>)
+    <span class="an">@ExceptionHandler</span>(<span class="ty">IllegalArgumentException</span>.class)
+    <span class="kw">public</span> <span class="ty">ErrorResponse</span> <span class="fn">handleBadRequest</span>(<span class="ty">Exception</span> e) {
+        <span class="kw">return new</span> <span class="ty">ErrorResponse</span>(<span class="str">"BAD_REQUEST"</span>, e.<span class="fn">getMessage</span>());
     }
 }</code></pre>
     </div>
 
+    <h3>How It Works</h3>
+    <ul>
+      <li>Exact exception type is matched first, then parent type</li>
+      <li><code>@ResponseStatus</code> sets the HTTP status code — defaults to <code>500</code> if omitted</li>
+      <li>If no handler is registered, a generic JSON error with status 500 is returned</li>
+    </ul>
+
     <h3>Error Response Shape</h3>
     <div class="code-wrap">
       <pre><code>{
-  <span class="str">"error"</span>: <span class="str">"RUNTIME_ERROR"</span>,
-  <span class="str">"message"</span>: <span class="str">"Something went wrong"</span>
+  <span class="str">"error"</span>: <span class="str">"BAD_REQUEST"</span>,
+  <span class="str">"message"</span>: <span class="str">"Parameter 'id' is invalid"</span>
 }</code></pre>
     </div>
   </section>
@@ -972,26 +1042,29 @@ flow.banner=true</code></pre>
   <section class="doc-section" id="dev-tools">
     <div class="section-label">Tooling</div>
     <h2>Developer Tools</h2>
-    <p>FlowForge includes a built-in developer experience suite accessible at runtime — no configuration needed in dev mode.</p>
+    <p>FlowForge includes a built-in developer experience suite accessible at runtime — no configuration needed.</p>
 
-    <table>
-      <thead><tr><th>Endpoint</th><th>Tool</th><th>Description</th></tr></thead>
-      <tbody>
-        <tr><td>GET /dev/routes</td><td>Dev Dashboard</td><td>Lists all registered routes</td></tr>
-        <tr><td>GET /dev/docs-ui</td><td>Docs UI</td><td>Interactive API explorer</td></tr>
-        <tr><td>GET /dev/openapi</td><td>OpenAPI</td><td>Swagger-compatible spec generation</td></tr>
-      </tbody>
-    </table>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Endpoint</th><th>Tool</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>GET /dev/routes</td><td>Route List</td><td>All registered routes as JSON</td></tr>
+          <tr><td>GET /dev/docs-ui</td><td>Docs UI</td><td>Interactive API explorer</td></tr>
+          <tr><td>GET /dev/openapi</td><td>OpenAPI</td><td>Swagger-compatible spec (path/query params correctly typed)</td></tr>
+        </tbody>
+      </table>
+    </div>
 
     <h3>Docs UI Features</h3>
     <ul>
-      <li>List all APIs grouped by tags</li>
-      <li>Try API directly from the browser</li>
-      <li>Interactive request builder</li>
-      <li>JSON response viewer</li>
-      <li>cURL export</li>
-      <li>Copy request button</li>
-      <li>JWT token input</li>
+      <li>Routes grouped by <code>@Tag</code></li>
+      <li>Try requests directly from the browser</li>
+      <li>Auto-built URL from path variable and query param inputs</li>
+      <li>Global JWT Bearer token field shared across all requests</li>
+      <li>Colour-coded method badges (GET, POST, PUT, DELETE)</li>
+      <li>JSON syntax-highlighted response viewer</li>
+      <li>cURL export and copy button per route</li>
+      <li>Filter by HTTP method and tag</li>
     </ul>
 
     <div class="callout tip">
@@ -1001,7 +1074,7 @@ flow.banner=true</code></pre>
 
     <div class="callout warn">
       <div class="callout-title">⚠️ Production Warning</div>
-      <p>Disable dev tools in production by setting <code>flow.env=prod</code>.</p>
+      <p>Dev tools are always active. Disable or firewall these endpoints in production.</p>
     </div>
   </section>
 
@@ -1014,30 +1087,18 @@ flow.banner=true</code></pre>
     <p>FlowForge ships a CLI for scaffolding and running projects.</p>
 
     <h3>Commands</h3>
-    <table>
-      <thead><tr><th>Command</th><th>Description</th></tr></thead>
-      <tbody>
-        <tr><td>create app &lt;name&gt;</td><td>Generate a new project</td></tr>
-        <tr><td>run</td><td>Run the application</td></tr>
-        <tr><td>build</td><td>Build the project</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Create & Run</h3>
-    <div class="terminal">
-      <div class="terminal-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
-      <div class="terminal-body">
-        <div><span class="prompt">$</span> flowforge create app my-app</div>
-        <div class="ok">✔ Created my-app/src/</div>
-        <div class="ok">✔ Created my-app/pom.xml</div>
-        <div class="ok">✔ Created my-app/app.properties</div>
-        <div><span class="prompt">$</span> cd my-app</div>
-        <div><span class="prompt">$</span> flowforge run</div>
-      </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Command</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>create app &lt;name&gt;</td><td>Scaffold a new FlowForge project</td></tr>
+          <tr><td>run</td><td>Run via mvn exec:java</td></tr>
+          <tr><td>build</td><td>Build via mvn clean package</td></tr>
+        </tbody>
+      </table>
     </div>
 
     <h3>Global CLI Setup (Windows)</h3>
-    <p>Follow these steps to use <code>flowforge</code> from any terminal on Windows.</p>
 
     <h4>Step 1 — Build the JAR</h4>
     <div class="terminal">
@@ -1047,28 +1108,23 @@ flow.banner=true</code></pre>
       </div>
     </div>
 
-    <h4>Step 2 — Create install folder</h4>
-    <div class="code-wrap"><pre><code>C:\flowforge</code></pre></div>
+    <h4>Step 2 — Create install folder and copy JAR</h4>
+    <div class="code-wrap"><pre><code>C:\flowforge\flowforge-core-1.0.jar</code></pre></div>
 
-    <h4>Step 3 — Copy the JAR</h4>
-    <div class="code-wrap"><pre><code>flowforge-core-1.0.jar  →  C:\flowforge\</code></pre></div>
-
-    <h4>Step 4 — Create flowforge.bat</h4>
+    <h4>Step 3 — Create flowforge.bat</h4>
     <div class="code-wrap">
       <button class="copy-btn" onclick="copyCode(this)">copy</button>
       <pre><code>@echo off
 java -cp "C:\flowforge\flowforge-core-1.0.jar" flowforge.cli.FlowForgeCLI %*</code></pre>
     </div>
 
-    <h4>Step 5 — Add to PATH</h4>
-    <p>Add <code>C:\flowforge</code> to your system <strong>PATH</strong> environment variable, then restart your terminal.</p>
-
-    <h4>Step 6 — Verify</h4>
+    <h4>Step 4 — Add to PATH and verify</h4>
+    <p>Add <code>C:\flowforge</code> to your system <strong>PATH</strong>, restart your terminal, then:</p>
     <div class="terminal">
       <div class="terminal-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
       <div class="terminal-body">
-        <div><span class="prompt">$</span> flowforge</div>
-        <div class="ok">🔥 FlowForge CLI v1.0</div>
+        <div><span class="prompt">$</span> flowforge create app my-app</div>
+        <div class="ok">Project created successfully: my-app</div>
       </div>
     </div>
   </section>
@@ -1079,7 +1135,6 @@ java -cp "C:\flowforge\flowforge-core-1.0.jar" flowforge.cli.FlowForgeCLI %*</co
   <section class="doc-section" id="testing">
     <div class="section-label">Tooling</div>
     <h2>Testing APIs</h2>
-    <p>You can test your FlowForge endpoints directly from a browser or via cURL.</p>
 
     <h3>Browser</h3>
     <div class="terminal">
@@ -1089,15 +1144,30 @@ java -cp "C:\flowforge\flowforge-core-1.0.jar" flowforge.cli.FlowForgeCLI %*</co
       </div>
     </div>
 
-    <h3>cURL</h3>
+    <h3>cURL — GET with query param</h3>
     <div class="code-wrap">
       <button class="copy-btn" onclick="copyCode(this)">copy</button>
-      <pre><code>curl -X POST http://localhost:9091/create -d "test"</code></pre>
+      <pre><code>curl http://localhost:9091/user?id=5</code></pre>
+    </div>
+
+    <h3>cURL — POST with body</h3>
+    <div class="code-wrap">
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+      <pre><code>curl -X POST http://localhost:9091/create \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Dipak","age":25}'</code></pre>
+    </div>
+
+    <h3>cURL — Auth request</h3>
+    <div class="code-wrap">
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+      <pre><code>curl http://localhost:9091/secure \
+  -H "Authorization: Bearer &lt;your-jwt-token&gt;"</code></pre>
     </div>
 
     <div class="callout tip">
       <div class="callout-title">✅ Tip</div>
-      <p>Use the built-in Docs UI at <code>/dev/docs-ui</code> for a full interactive testing experience — no external tools needed.</p>
+      <p>Use <code>/dev/docs-ui</code> for a full interactive testing experience — JWT input, param builder, and cURL export are all built in.</p>
     </div>
   </section>
 
@@ -1108,33 +1178,129 @@ java -cp "C:\flowforge\flowforge-core-1.0.jar" flowforge.cli.FlowForgeCLI %*</co
     <div class="section-label">Reference</div>
     <h2>Architecture Overview</h2>
 
-    <h3>Layers</h3>
+    <h3>Startup Flow</h3>
     <div class="code-wrap">
-      <pre><code>Application Layer
-      ↓
-FlowForge Core
-  ├── Routing
-  ├── DI Container
-  ├── Middleware
-  └── Exception Handling
-      ↓
-HTTP Server
-      ↓
-JVM</code></pre>
+      <pre><code>Flow.run(AppMain.class)
+   ↓
+@App check → fail fast if missing
+   ↓
+ClassScanner → recursive scan of base package
+   ↓
+Context → register beans (@Component, @Service, @Controller, @ConfigurationProperties)
+   ↓
+Injector → resolve @Inject, @Value, ConfigBinder for all beans
+   ↓
+Dispatcher → map @Get/@Post/@Put/@Delete methods + AOP annotations
+   ↓
+Server.start(port) → embedded HttpServer</code></pre>
+    </div>
+
+    <h3>Request Lifecycle</h3>
+    <div class="code-wrap">
+      <pre><code>Incoming HTTP request
+   ↓
+Route matching (path variables extracted)
+   ↓
+AOP middleware chain (@Around → @Before)
+   ↓
+AuthMiddleware (if @Auth present)
+   ↓
+invokeController()
+  ├── Resolve @QueryParam / @PathVariable / @RequestBody
+  ├── Run Validator (@NotNull, @Min, @Max)
+  └── Invoke controller method
+   ↓
+AOP @After hook
+   ↓
+JSON / plain text response</code></pre>
     </div>
 
     <h3>Internal Modules</h3>
-    <table>
-      <thead><tr><th>Module</th><th>Responsibility</th></tr></thead>
-      <tbody>
-        <tr><td>Flow</td><td>Application bootstrap entry point</td></tr>
-        <tr><td>Scanner</td><td>Classpath class discovery</td></tr>
-        <tr><td>Context</td><td>Bean registry and lifecycle</td></tr>
-        <tr><td>Dispatcher</td><td>Route mapping and dispatch</td></tr>
-        <tr><td>Server</td><td>HTTP request handling</td></tr>
-        <tr><td>Injector</td><td>Constructor dependency injection</td></tr>
-      </tbody>
-    </table>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Module</th><th>Responsibility</th></tr></thead>
+        <tbody>
+          <tr><td>Flow</td><td>Bootstrap entry point, @App enforcement</td></tr>
+          <tr><td>ClassScanner</td><td>Recursive classpath discovery (file + JAR)</td></tr>
+          <tr><td>Context</td><td>Bean registry — exact + assignable lookup</td></tr>
+          <tr><td>Injector</td><td>@Inject, @Value, ConfigBinder resolution</td></tr>
+          <tr><td>Dispatcher</td><td>Route registration + AOP middleware resolution</td></tr>
+          <tr><td>Server</td><td>HTTP request handling, middleware chain, response</td></tr>
+          <tr><td>ExceptionManager</td><td>@ExceptionHandler registry + resolution</td></tr>
+          <tr><td>Validator</td><td>@NotNull, @Min, @Max parameter validation</td></tr>
+          <tr><td>JwtUtil</td><td>JWT generation and validation</td></tr>
+          <tr><td>OpenApiBuilder</td><td>OpenAPI 3.0 spec generation</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ANNOTATION REFERENCE -->
+  <section class="doc-section" id="annotations">
+    <div class="section-label">Reference</div>
+    <h2>Annotation Reference</h2>
+
+    <h3>Class-level</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Annotation</th><th>Target</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>@App</td><td>Class</td><td>Marks the entry point — required by Flow.run()</td></tr>
+          <tr><td>@Controller</td><td>Class</td><td>HTTP handler — routes auto-registered</td></tr>
+          <tr><td>@Service</td><td>Class</td><td>Business logic bean</td></tr>
+          <tr><td>@Component</td><td>Class</td><td>Generic managed bean</td></tr>
+          <tr><td>@ConfigurationProperties("prefix")</td><td>Class</td><td>Binds config prefix to class fields</td></tr>
+          <tr><td>@Auth(role="")</td><td>Class / Method</td><td>Requires JWT auth; optional role check</td></tr>
+          <tr><td>@Tag("name")</td><td>Class / Method</td><td>Groups routes in Docs UI; method overrides class</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Method-level</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Annotation</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>@Get("/path")</td><td>Map GET request</td></tr>
+          <tr><td>@Post("/path")</td><td>Map POST request</td></tr>
+          <tr><td>@Put("/path")</td><td>Map PUT request</td></tr>
+          <tr><td>@Delete("/path")</td><td>Map DELETE request</td></tr>
+          <tr><td>@Before(Class)</td><td>Run middleware before the handler</td></tr>
+          <tr><td>@After(Class)</td><td>Run middleware after the handler</td></tr>
+          <tr><td>@Around(Class)</td><td>Wrap the full execution</td></tr>
+          <tr><td>@ExceptionHandler(Class)</td><td>Handle a specific exception type</td></tr>
+          <tr><td>@ResponseStatus(int)</td><td>HTTP status for @ExceptionHandler — default 500</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Parameter-level</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Annotation</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>@QueryParam("key")</td><td>Bind URL query parameter; required=true by default</td></tr>
+          <tr><td>@PathVariable("name")</td><td>Bind path segment from URL template</td></tr>
+          <tr><td>@RequestBody</td><td>Deserialize request body via Jackson</td></tr>
+          <tr><td>@NotNull</td><td>Fail if parameter is null</td></tr>
+          <tr><td>@Min(n)</td><td>Fail if numeric value &lt; n</td></tr>
+          <tr><td>@Max(n)</td><td>Fail if numeric value &gt; n</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Field-level</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Annotation</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>@Inject</td><td>Inject a bean from the context by type</td></tr>
+          <tr><td>@Value("key")</td><td>Inject a config value; supports defaultValue</td></tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
   <hr class="divider">
@@ -1144,11 +1310,14 @@ JVM</code></pre>
     <div class="section-label">Reference</div>
     <h2>Best Practices</h2>
     <ul>
+      <li>Always annotate your entry class with <strong>@App</strong></li>
       <li>Keep controllers thin — only handle HTTP concerns</li>
       <li>Put all business logic in <strong>@Service</strong> classes</li>
       <li>Use DTOs for request/response models — never expose internal entities directly</li>
-      <li>Enable dev tools only when <code>app.env=dev</code></li>
-      <li>Use environment-specific config files (<code>app-dev.properties</code>, <code>app-prod.properties</code>)</li>
+      <li>Use <code>@ConfigurationProperties</code> for grouped config instead of many <code>@Value</code> fields</li>
+      <li>Define a <code>GlobalExceptionHandler</code> with <code>@ResponseStatus</code> on every handler</li>
+      <li>Use environment-specific config files — never hardcode ports or secrets</li>
+      <li>Set <code>auth.enabled=false</code> in <code>app-dev.properties</code> to speed up local testing</li>
     </ul>
   </section>
 
@@ -1158,21 +1327,21 @@ JVM</code></pre>
   <section class="doc-section" id="roadmap">
     <div class="section-label">Reference</div>
     <h2>Roadmap</h2>
-    <p>Planned improvements for upcoming releases.</p>
-    <table>
-      <thead><tr><th>Feature</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td>@Autowired (field injection)</td><td><span class="pill plan">Planned</span></td></tr>
-        <tr><td>Constructor-based DI</td><td><span class="pill plan">Planned</span></td></tr>
-        <tr><td>Middleware pipeline</td><td><span class="pill plan">Planned</span></td></tr>
-        <tr><td>Validation system</td><td><span class="pill plan">Planned</span></td></tr>
-        <tr><td>Logging framework</td><td><span class="pill plan">Planned</span></td></tr>
-        <tr><td>Hot reload (dev mode)</td><td><span class="pill plan">Planned</span></td></tr>
-        <tr><td>CLI global install</td><td><span class="pill plan">Planned</span></td></tr>
-        <tr><td>Fat JAR packaging</td><td><span class="pill plan">Planned</span></td></tr>
-        <tr><td>Production profiles</td><td><span class="pill plan">Planned</span></td></tr>
-      </tbody>
-    </table>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Feature</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>CORS support</td><td><span class="pill plan">Planned</span></td></tr>
+          <tr><td>/dev/beans dashboard</td><td><span class="pill plan">Planned</span></td></tr>
+          <tr><td>Bean scopes (singleton / prototype)</td><td><span class="pill plan">Planned</span></td></tr>
+          <tr><td>@Size validation for strings</td><td><span class="pill plan">Planned</span></td></tr>
+          <tr><td>Database layer (ORM-lite / @Repository)</td><td><span class="pill plan">Planned</span></td></tr>
+          <tr><td>Hot reload (dev mode)</td><td><span class="pill plan">Planned</span></td></tr>
+          <tr><td>Fat JAR packaging</td><td><span class="pill plan">Planned</span></td></tr>
+          <tr><td>HTTPS / TLS support</td><td><span class="pill plan">Planned</span></td></tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
   <hr class="divider">
@@ -1181,27 +1350,36 @@ JVM</code></pre>
   <section class="doc-section" id="status">
     <div class="section-label">Reference</div>
     <h2>Status</h2>
-    <table>
-      <thead><tr><th>Feature</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td>Routing system</td><td><span class="pill done">Stable</span></td></tr>
-        <tr><td>DI container</td><td><span class="pill done">Stable</span></td></tr>
-        <tr><td>Embedded HTTP server</td><td><span class="pill done">Stable</span></td></tr>
-        <tr><td>Docs UI</td><td><span class="pill done">Stable</span></td></tr>
-        <tr><td>OpenAPI generation</td><td><span class="pill done">Stable</span></td></tr>
-        <tr><td>CLI tool</td><td><span class="pill done">Stable</span></td></tr>
-        <tr><td>Maven integration</td><td><span class="pill done">Stable</span></td></tr>
-      </tbody>
-    </table>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Feature</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Embedded HTTP server</td><td><span class="pill done">Stable</span></td></tr>
+          <tr><td>Routing (@Get @Post @Put @Delete)</td><td><span class="pill done">Stable</span></td></tr>
+          <tr><td>Path variables + query params</td><td><span class="pill done">Stable</span></td></tr>
+          <tr><td>Dependency injection (@Inject @Value)</td><td><span class="pill done">Stable</span></td></tr>
+          <tr><td>@ConfigurationProperties</td><td><span class="pill done">Stable</span></td></tr>
+          <tr><td>Profile-based config (dev/prod)</td><td><span class="pill done">Stable</span></td></tr>
+          <tr><td>AOP middleware (@Before @After @Around)</td><td><span class="pill done">Stable</span></td></tr>
+          <tr><td>JWT authentication (@Auth)</td><td><span class="pill done">Stable</span></td></tr>
+          <tr><td>Validation (@NotNull @Min @Max)</td><td><span class="pill done">Stable</span></td></tr>
+          <tr><td>Exception handling (@ExceptionHandler @ResponseStatus)</td><td><span class="pill done">Stable</span></td></tr>
+          <tr><td>Sub-package scanning</td><td><span class="pill done">Stable</span></td></tr>
+          <tr><td>@App entry point enforcement</td><td><span class="pill done">Stable</span></td></tr>
+          <tr><td>Docs UI (/dev/docs-ui)</td><td><span class="pill done">Stable</span></td></tr>
+          <tr><td>OpenAPI generation (/dev/openapi)</td><td><span class="pill done">Stable</span></td></tr>
+          <tr><td>CLI tool</td><td><span class="pill done">Stable</span></td></tr>
+          <tr><td>Maven integration</td><td><span class="pill done">Stable</span></td></tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
 </main>
 
-<!-- BACK TO TOP -->
 <a href="#introduction" class="back-to-top" id="btt">↑</a>
 
 <script>
-  // Progress bar
   window.addEventListener('scroll', () => {
     const s = document.documentElement;
     const pct = (s.scrollTop / (s.scrollHeight - s.clientHeight)) * 100;
@@ -1209,7 +1387,6 @@ JVM</code></pre>
     document.getElementById('btt').classList.toggle('visible', s.scrollTop > 400);
   });
 
-  // Sidebar open/close
   function openSidebar() {
     document.getElementById('sidebar').classList.add('open');
     document.getElementById('backdrop').classList.add('visible');
@@ -1224,17 +1401,11 @@ JVM</code></pre>
     document.getElementById('sidebar').classList.contains('open') ? closeSidebar() : openSidebar();
   }
 
-  // Close sidebar on nav link click (mobile)
   document.querySelectorAll('.nav-link').forEach(a => {
-    a.addEventListener('click', () => {
-      if (window.innerWidth <= 860) closeSidebar();
-    });
+    a.addEventListener('click', () => { if (window.innerWidth <= 860) closeSidebar(); });
   });
-
-  // Close sidebar on Escape
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSidebar(); });
 
-  // Active nav highlight on scroll
   const sections = document.querySelectorAll('.doc-section, .hero');
   const navLinks = document.querySelectorAll('.nav-link');
   const observer = new IntersectionObserver(entries => {
@@ -1249,7 +1420,6 @@ JVM</code></pre>
   }, { rootMargin: '-20% 0px -70% 0px' });
   sections.forEach(s => observer.observe(s));
 
-  // Wrap all tables for horizontal scroll on mobile
   document.querySelectorAll('table').forEach(t => {
     if (!t.parentElement.classList.contains('table-wrap')) {
       const wrap = document.createElement('div');
@@ -1259,7 +1429,6 @@ JVM</code></pre>
     }
   });
 
-  // Copy button
   function copyCode(btn) {
     const pre = btn.nextElementSibling;
     navigator.clipboard.writeText(pre.textContent).then(() => {
